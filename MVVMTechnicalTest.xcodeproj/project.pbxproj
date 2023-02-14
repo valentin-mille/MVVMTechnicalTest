@@ -16,6 +16,10 @@
 		43EA1A09299B5F2A0062E0AF /* MVVMTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA1A08299B5F2A0062E0AF /* MVVMTechnicalTestTests.swift */; };
 		43EA1A13299B5F2A0062E0AF /* MVVMTechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA1A12299B5F2A0062E0AF /* MVVMTechnicalTestUITests.swift */; };
 		43EA1A15299B5F2A0062E0AF /* MVVMTechnicalTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA1A14299B5F2A0062E0AF /* MVVMTechnicalTestUITestsLaunchTests.swift */; };
+		43EA1A26299B65730062E0AF /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 43EA1A25299B65730062E0AF /* swiftgen.yml */; };
+		43EA1A2B299B65AD0062E0AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43EA1A2D299B65AD0062E0AF /* Localizable.strings */; };
+		43EA1A31299B68F40062E0AF /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA1A2F299B68F40062E0AF /* XCAssets+Generated.swift */; };
+		43EA1A32299B68F40062E0AF /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA1A30299B68F40062E0AF /* Strings+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		43EA1A0E299B5F2A0062E0AF /* MVVMTechnicalTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMTechnicalTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA1A12299B5F2A0062E0AF /* MVVMTechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTechnicalTestUITests.swift; sourceTree = "<group>"; };
 		43EA1A14299B5F2A0062E0AF /* MVVMTechnicalTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTechnicalTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43EA1A25299B65730062E0AF /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		43EA1A2C299B65AD0062E0AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		43EA1A2E299B67AC0062E0AF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		43EA1A2F299B68F40062E0AF /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		43EA1A30299B68F40062E0AF /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +108,11 @@
 		43EA19F0299B5F2A0062E0AF /* MVVMTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				43EA1A21299B63700062E0AF /* Resources */,
 				43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */,
 				43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */,
 				43EA19F5299B5F2A0062E0AF /* ViewController.swift */,
 				43EA19F7299B5F2A0062E0AF /* Main.storyboard */,
-				43EA19FA299B5F2A0062E0AF /* Assets.xcassets */,
 				43EA19FC299B5F2A0062E0AF /* LaunchScreen.storyboard */,
 				43EA19FF299B5F2A0062E0AF /* Info.plist */,
 			);
@@ -127,6 +136,34 @@
 			path = MVVMTechnicalTestUITests;
 			sourceTree = "<group>";
 		};
+		43EA1A21299B63700062E0AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43EA1A25299B65730062E0AF /* swiftgen.yml */,
+				43EA19FA299B5F2A0062E0AF /* Assets.xcassets */,
+				43EA1A28299B659E0062E0AF /* Localizable */,
+				43EA1A27299B65950062E0AF /* Generated */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		43EA1A27299B65950062E0AF /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				43EA1A30299B68F40062E0AF /* Strings+Generated.swift */,
+				43EA1A2F299B68F40062E0AF /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		43EA1A28299B659E0062E0AF /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				43EA1A2D299B65AD0062E0AF /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +171,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43EA1A18299B5F2A0062E0AF /* Build configuration list for PBXNativeTarget "MVVMTechnicalTest" */;
 			buildPhases = (
+				43EA1A23299B64F00062E0AF /* SwiftLint */,
 				43EA19EA299B5F2A0062E0AF /* Sources */,
 				43EA19EB299B5F2A0062E0AF /* Frameworks */,
 				43EA19EC299B5F2A0062E0AF /* Resources */,
@@ -213,6 +251,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 43EA19E5299B5F2A0062E0AF;
 			productRefGroup = 43EA19EF299B5F2A0062E0AF /* Products */;
@@ -231,9 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EA1A2B299B65AD0062E0AF /* Localizable.strings in Resources */,
 				43EA19FE299B5F2A0062E0AF /* LaunchScreen.storyboard in Resources */,
 				43EA19FB299B5F2A0062E0AF /* Assets.xcassets in Resources */,
 				43EA19F9299B5F2A0062E0AF /* Main.storyboard in Resources */,
+				43EA1A26299B65730062E0AF /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +294,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43EA1A23299B64F00062E0AF /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		43EA19EA299B5F2A0062E0AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EA1A32299B68F40062E0AF /* Strings+Generated.swift in Sources */,
 				43EA19F6299B5F2A0062E0AF /* ViewController.swift in Sources */,
 				43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */,
 				43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */,
+				43EA1A31299B68F40062E0AF /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +378,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		43EA1A2D299B65AD0062E0AF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43EA1A2C299B65AD0062E0AF /* en */,
+				43EA1A2E299B67AC0062E0AF /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -320,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -380,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

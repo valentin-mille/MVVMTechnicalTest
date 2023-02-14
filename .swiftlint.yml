@@ -1,0 +1,49 @@
+disabled_rules:
+    - balanced_xctest_lifecycle
+    - conditional_returns_on_newline
+    - for_where
+    - anonymous_argument_in_multiline_closure
+    - trailing_comma
+    - nesting
+    - opening_brace
+    - closure_body_length
+    - closure_parameter_position
+
+opt_in_rules:
+    - accessibility_label_for_image
+    - accessibility_trait_for_button
+    - anyobject_protocol
+    - array_init
+    - attributes
+    - capture_variable
+    - closure_end_indentation
+    - closure_spacing
+    - collection_alignment
+    - comma_inheritance
+
+included:
+    - MVVMTechnicalTest 
+
+excluded:
+    - Carthage
+    - Pods
+    - MVVMTechnicalTest/Resources/Generated
+
+# Rules configuration
+
+line_length: 120
+
+file_length:
+    warning: 400
+    error: 800
+
+function_body_length:
+    warning: 25
+    error: 45
+
+function_parameter_count:
+    warning: 4
+    error: 5
+
+
+indentation: 4
