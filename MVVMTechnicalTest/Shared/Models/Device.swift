@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Device {
+protocol Device: Codable {
     var id: UInt { get }
     var deviceName: String { get }
     var productType: String { get }
 }
 
-protocol Configurable {
+protocol Configurable: Codable {
     var mode: Bool { get }
 }

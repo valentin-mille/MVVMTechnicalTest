@@ -8,5 +8,5 @@
 import Foundation
 
 enum EndPoints {
-    static let BaseURL = "http://storage42.com/modulotest/data.json"
+    static let deviceList = "http://storage42.com/modulotest/data.json"
 }

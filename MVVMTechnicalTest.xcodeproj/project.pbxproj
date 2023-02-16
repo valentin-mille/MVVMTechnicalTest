@@ -23,6 +23,8 @@
 		43363270299E80E300173329 /* AppWindowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336326F299E80E300173329 /* AppWindowRouter.swift */; };
 		43363272299E810500173329 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363271299E810500173329 /* NavigationControllerRouter.swift */; };
 		43363274299E813E00173329 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363273299E813E00173329 /* HomeCoordinator.swift */; };
+		43363276299E8B2C00173329 /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363275299E8B2C00173329 /* DeviceList.swift */; };
+		43363278299E92C200173329 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363277299E92C200173329 /* DeviceService.swift */; };
 		43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */; };
 		43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */; };
 		43EA19FB299B5F2A0062E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EA19FA299B5F2A0062E0AF /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		4336326F299E80E300173329 /* AppWindowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowRouter.swift; sourceTree = "<group>"; };
 		43363271299E810500173329 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		43363273299E813E00173329 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		43363275299E8B2C00173329 /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
+		43363277299E92C200173329 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		43EA19EE299B5F2A0062E0AF /* MVVMTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		43363249299E3D9100173329 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				43363275299E8B2C00173329 /* DeviceList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 		43EA1A3A299B6BDA0062E0AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				43363277299E92C200173329 /* DeviceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -498,9 +504,11 @@
 				4336324F299E3DD600173329 /* Device.swift in Sources */,
 				43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */,
 				43363264299E805B00173329 /* Coordinator.swift in Sources */,
+				43363276299E8B2C00173329 /* DeviceList.swift in Sources */,
 				4336326B299E809D00173329 /* AppCoordinator.swift in Sources */,
 				43363259299E462000173329 /* UIView+AutoLayout.swift in Sources */,
 				43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */,
+				43363278299E92C200173329 /* DeviceService.swift in Sources */,
 				43363252299E3EEE00173329 /* Light.swift in Sources */,
 				43363269299E808C00173329 /* Presentable.swift in Sources */,
 				43EA1A35299B6ADD0062E0AF /* Endpoints.swift in Sources */,

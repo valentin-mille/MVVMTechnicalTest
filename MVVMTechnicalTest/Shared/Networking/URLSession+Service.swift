@@ -31,15 +31,16 @@ extension URLSession {
             with: url,
             usingResult: { result in
                 switch result {
-                case .success(let (urlResponse, data)):
+                case .success(let (_, data)):
                     let decoder = JSONDecoder()
                     do {
                         let decodedTypeResponse = try decoder.decode(T.self, from: data)
                         response(.success(decodedTypeResponse))
-                    } catch (let error) {
+                    } catch let error {
+                        print("Error decoding: \(error)")
                         response(.failure(.decodeError))
                     }
-                case .failure(let error):
+                case .failure:
                     response(.failure(.apiError))
                 }
             }
@@ -54,7 +55,8 @@ extension URLSession {
         -> URLSessionDataTask
     {
         dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error {
+            if let error {
+                print("Error request: \(error)")
                 result(.failure(.apiError))
                 return
             }
@@ -71,7 +73,7 @@ extension URLSession {
 
 public enum APIServiceError: Error {
     case apiError
-    case invalidEndpoint
+    case invalidUrl
     case invalidResponse
     case noData
     case decodeError

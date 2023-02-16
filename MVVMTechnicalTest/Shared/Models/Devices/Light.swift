@@ -12,4 +12,25 @@ struct Light: Device, Configurable {
     let mode: Bool
 
     let intensity: UInt
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case deviceName
+        case mode
+        case productType
+        case intensity
+    }
+
+    init(
+        from decoder: Decoder
+    ) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try values.decode(UInt.self, forKey: .id)
+        deviceName = try values.decode(String.self, forKey: .deviceName)
+        productType = try values.decode(String.self, forKey: .productType)
+        let tmpMode = try values.decode(String.self, forKey: .mode)
+        mode = tmpMode == "ON" ? true : false
+        intensity = try values.decode(UInt.self, forKey: .intensity)
+    }
 }

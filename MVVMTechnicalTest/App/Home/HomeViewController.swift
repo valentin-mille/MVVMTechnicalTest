@@ -19,6 +19,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.buildViewHierarchy()
         self.setupConstraints()
+        viewModel.loadDeviceList()
     }
 
     private func buildViewHierarchy() {
@@ -45,14 +46,13 @@ final class HomeViewController: UIViewController {
 //        <#code#>
 //    }
 //
-//
 //}
-//
-//// MARK: - UITableViewDelegate
-//
-//extension HomeViewController: UITableViewDelegate {
-//
-//}
+
+// MARK: - UITableViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+
+}
 
 extension HomeViewController {
     private func createTableView() -> UITableView {
@@ -62,6 +62,12 @@ extension HomeViewController {
     }
 
     private func createHomeViewModel() -> HomeViewModel {
-        return HomeViewModel()
+        return HomeViewModel(service: DeviceService())
     }
+
+    //    private func createDefaultModel() -> DeviceList {
+    //        let model = DeviceList(devices: [
+    //            Header(id: <#T##UInt#>, deviceName: <#T##String#>, productType: <#T##String#>, mode: <#T##Bool#>, temperature: <#T##Int#>)
+    //        ])
+    //    }
 }
