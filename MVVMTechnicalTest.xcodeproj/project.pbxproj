@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4336324F299E3DD600173329 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336324E299E3DD600173329 /* Device.swift */; };
+		43363252299E3EEE00173329 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363251299E3EEE00173329 /* Light.swift */; };
+		43363254299E405200173329 /* RollerShutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363253299E405200173329 /* RollerShutter.swift */; };
+		43363256299E418300173329 /* Heater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363255299E418300173329 /* Heater.swift */; };
+		43363259299E462000173329 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363258299E462000173329 /* UIView+AutoLayout.swift */; };
+		4336325D299E771400173329 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336325C299E771400173329 /* HomeViewController.swift */; };
+		43363260299E795C00173329 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336325F299E795C00173329 /* HomeTableViewCell.swift */; };
+		43363262299E79CB00173329 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363261299E79CB00173329 /* HomeViewModel.swift */; };
+		43363264299E805B00173329 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363263299E805B00173329 /* Coordinator.swift */; };
+		43363266299E806D00173329 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363265299E806D00173329 /* NavigationRouter.swift */; };
+		43363269299E808C00173329 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363268299E808C00173329 /* Presentable.swift */; };
+		4336326B299E809D00173329 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336326A299E809D00173329 /* AppCoordinator.swift */; };
+		4336326E299E80D600173329 /* WindowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336326D299E80D600173329 /* WindowRouter.swift */; };
+		43363270299E80E300173329 /* AppWindowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336326F299E80E300173329 /* AppWindowRouter.swift */; };
+		43363272299E810500173329 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363271299E810500173329 /* NavigationControllerRouter.swift */; };
+		43363274299E813E00173329 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363273299E813E00173329 /* HomeCoordinator.swift */; };
 		43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */; };
 		43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */; };
 		43EA19F6299B5F2A0062E0AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F5299B5F2A0062E0AF /* ViewController.swift */; };
@@ -43,6 +59,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4336324E299E3DD600173329 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		43363251299E3EEE00173329 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		43363253299E405200173329 /* RollerShutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollerShutter.swift; sourceTree = "<group>"; };
+		43363255299E418300173329 /* Heater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heater.swift; sourceTree = "<group>"; };
+		43363258299E462000173329 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		4336325C299E771400173329 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4336325F299E795C00173329 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		43363261299E79CB00173329 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		43363263299E805B00173329 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		43363265299E806D00173329 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		43363268299E808C00173329 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		4336326A299E809D00173329 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4336326D299E80D600173329 /* WindowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRouter.swift; sourceTree = "<group>"; };
+		4336326F299E80E300173329 /* AppWindowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowRouter.swift; sourceTree = "<group>"; };
+		43363271299E810500173329 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
+		43363273299E813E00173329 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		43EA19EE299B5F2A0062E0AF /* MVVMTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +123,118 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43363249299E3D9100173329 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4336324A299E3D9C00173329 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4336325C299E771400173329 /* HomeViewController.swift */,
+				43363273299E813E00173329 /* HomeCoordinator.swift */,
+				4336324C299E3DB400173329 /* Views */,
+				4336324B299E3DAB00173329 /* ViewModels */,
+				43363249299E3D9100173329 /* Models */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4336324B299E3DAB00173329 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				43363261299E79CB00173329 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4336324C299E3DB400173329 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4336325F299E795C00173329 /* HomeTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4336324D299E3DC100173329 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4336324E299E3DD600173329 /* Device.swift */,
+				43363250299E3E7700173329 /* Devices */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		43363250299E3E7700173329 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				43363251299E3EEE00173329 /* Light.swift */,
+				43363253299E405200173329 /* RollerShutter.swift */,
+				43363255299E418300173329 /* Heater.swift */,
+			);
+			path = Devices;
+			sourceTree = "<group>";
+		};
+		43363257299E461300173329 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				43363258299E462000173329 /* UIView+AutoLayout.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4336325A299E743300173329 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4336325E299E781100173329 /* Navigation */,
+				43363257299E461300173329 /* Extensions */,
+				4336324D299E3DC100173329 /* Models */,
+				43EA1A3A299B6BDA0062E0AF /* Services */,
+				43EA1A33299B6AD40062E0AF /* Networking */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4336325B299E74B600173329 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4336324A299E3D9C00173329 /* Home */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4336325E299E781100173329 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				43363267299E808600173329 /* UIKit */,
+				43363263299E805B00173329 /* Coordinator.swift */,
+				43363265299E806D00173329 /* NavigationRouter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		43363267299E808600173329 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4336326C299E80C300173329 /* Router */,
+				43363268299E808C00173329 /* Presentable.swift */,
+				4336326A299E809D00173329 /* AppCoordinator.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		4336326C299E80C300173329 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4336326D299E80D600173329 /* WindowRouter.swift */,
+				4336326F299E80E300173329 /* AppWindowRouter.swift */,
+				43363271299E810500173329 /* NavigationControllerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		43EA19E5299B5F2A0062E0AF = {
 			isa = PBXGroup;
 			children = (
@@ -114,9 +258,9 @@
 		43EA19F0299B5F2A0062E0AF /* MVVMTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
-				43EA1A3A299B6BDA0062E0AF /* Services */,
-				43EA1A33299B6AD40062E0AF /* Networking */,
+				4336325A299E743300173329 /* Shared */,
 				43EA1A21299B63700062E0AF /* Resources */,
+				4336325B299E74B600173329 /* App */,
 				43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */,
 				43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */,
 				43EA19F5299B5F2A0062E0AF /* ViewController.swift */,
@@ -346,11 +490,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43363256299E418300173329 /* Heater.swift in Sources */,
+				4336326E299E80D600173329 /* WindowRouter.swift in Sources */,
 				43EA1A37299B6B360062E0AF /* Reachability.swift in Sources */,
+				43363254299E405200173329 /* RollerShutter.swift in Sources */,
+				43363270299E80E300173329 /* AppWindowRouter.swift in Sources */,
+				43363274299E813E00173329 /* HomeCoordinator.swift in Sources */,
+				43363262299E79CB00173329 /* HomeViewModel.swift in Sources */,
+				43363266299E806D00173329 /* NavigationRouter.swift in Sources */,
+				43363272299E810500173329 /* NavigationControllerRouter.swift in Sources */,
 				43EA1A32299B68F40062E0AF /* Strings+Generated.swift in Sources */,
 				43EA19F6299B5F2A0062E0AF /* ViewController.swift in Sources */,
+				4336325D299E771400173329 /* HomeViewController.swift in Sources */,
+				43363260299E795C00173329 /* HomeTableViewCell.swift in Sources */,
+				4336324F299E3DD600173329 /* Device.swift in Sources */,
 				43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */,
+				43363264299E805B00173329 /* Coordinator.swift in Sources */,
+				4336326B299E809D00173329 /* AppCoordinator.swift in Sources */,
+				43363259299E462000173329 /* UIView+AutoLayout.swift in Sources */,
 				43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */,
+				43363252299E3EEE00173329 /* Light.swift in Sources */,
+				43363269299E808C00173329 /* Presentable.swift in Sources */,
 				43EA1A35299B6ADD0062E0AF /* Endpoints.swift in Sources */,
 				43EA1A39299B6B570062E0AF /* URLSession+Service.swift in Sources */,
 				43EA1A31299B68F40062E0AF /* XCAssets+Generated.swift in Sources */,
