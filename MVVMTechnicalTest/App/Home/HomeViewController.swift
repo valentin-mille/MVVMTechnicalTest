@@ -48,7 +48,7 @@ final class HomeViewController: UIViewController {
     private func configureCell(cell: UITableViewCell, device: Device) {
         var configuration = cell.defaultContentConfiguration()
         configuration.text = device.deviceName
-        configuration.secondaryText = device.getDisplayString()
+        configuration.secondaryText = device.getStatus()
         configuration.image = device.getImage()
         configuration.imageProperties.maximumSize = CGSize(width: 50, height: 50)
         configuration.textProperties.font = .systemFont(ofSize: 16, weight: .bold)

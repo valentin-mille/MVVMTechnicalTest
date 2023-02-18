@@ -8,8 +8,8 @@
 import UIKit
 
 private enum Constants {
-    static let rollerShutterMaxPosition: UInt = 28
-    static let rollerShutterMinPosition: UInt = 7
+    static let rollerShutterMaxPosition: UInt = 100
+    static let rollerShutterMinPosition: UInt = 0
 }
 
 final class RollerShutter: Device, Configurable {
@@ -17,7 +17,7 @@ final class RollerShutter: Device, Configurable {
     let deviceName: String
     let productType: String
 
-    var position: UInt
+    var position: Float
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -34,16 +34,16 @@ final class RollerShutter: Device, Configurable {
         id = try values.decode(UInt.self, forKey: .id)
         deviceName = try values.decode(String.self, forKey: .deviceName)
         productType = try values.decode(String.self, forKey: .productType)
-        position = try values.decode(UInt.self, forKey: .position)
+        position = try values.decode(Float.self, forKey: .position)
     }
 
-    func getDisplayString() -> String {
+    func getStatus() -> String {
         if position >= 100 {
-            return "opened"
+            return "Opened"
         } else if position <= 0 {
-            return "closed"
+            return "Closed"
         }
-        return "opened at \(position)%"
+        return "Opened at \(Int(position))%"
     }
 
     func getImage() -> UIImage {
@@ -54,11 +54,11 @@ final class RollerShutter: Device, Configurable {
 // MARK: - Configurable
 
 extension RollerShutter {
-    func setCurrentValue(newValue: UInt) {
+    func setCurrentValue(newValue: Float) {
         self.position = newValue
     }
 
-    func getCurrentValue() -> UInt {
+    func getCurrentValue() -> Float {
         self.position
     }
 

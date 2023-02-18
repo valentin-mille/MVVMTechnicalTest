@@ -1,5 +1,5 @@
 //
-//  ControlHorizontalViewController.swift
+//  ControlHeaterViewController.swift
 //  MVVMTechnicalTest
 //
 //  Created by Valentin Mille on 2/18/23.
@@ -12,9 +12,9 @@ private enum Constants {
     static let imageStatusSize = CGSize(width: 50, height: 50)
 }
 
-final class ControlHorizontalViewController: UIViewController {
+final class ControlHeaterViewController: UIViewController {
 
-    var viewModel: ControlViewModel
+    var viewModel: ControlHeaterViewModel
 
     private lazy var stackViewHorizontal = createStackView()
     private lazy var labelStatus = createLabelStatus()
@@ -23,7 +23,7 @@ final class ControlHorizontalViewController: UIViewController {
     private lazy var slider = createSlider()
 
     init(
-        viewModel: ControlViewModel
+        viewModel: ControlHeaterViewModel
     ) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -63,22 +63,19 @@ final class ControlHorizontalViewController: UIViewController {
 
     @objc
     private func didTouchSlider(sender: UISlider) {
-        guard let configurable = self.viewModel.device as? Configurable,
-            sender.value > 0
-        else { return }
-        configurable.setCurrentValue(newValue: UInt(sender.value))
+        viewModel.configureDevice(value: sender.value)
+        labelStatus.text = viewModel.statusText
     }
 
     @objc
     private func didPressSwitch(sender: UISwitch) {
-        guard var activable = viewModel.device as? Activable else { return }
-        activable.mode = sender.isOn
-        labelStatus.text = "The device is \(activable.getMode())"
+        viewModel.activateDevice(isActivated: sender.isOn)
+        labelStatus.text = viewModel.statusText
         imageStatus.image = viewModel.device.getImage()
     }
 }
 
-extension ControlHorizontalViewController {
+extension ControlHeaterViewController {
     private func createImageStatusView() -> UIImageView {
         let image = viewModel.device.getImage()
         let imageView = UIImageView(image: image)
@@ -102,40 +99,27 @@ extension ControlHorizontalViewController {
         switchMode.preferredStyle = .sliding
         switchMode.isHidden = !viewModel.device.isActivable()
         switchMode.translatesAutoresizingMaskIntoConstraints = false
-        if let activable = viewModel.device as? Activable {
-            switchMode.setOn(activable.mode, animated: false)
-        }
+        switchMode.setOn(viewModel.device.mode, animated: false)
         switchMode.addTarget(self, action: #selector(self.didPressSwitch), for: .allTouchEvents)
         return switchMode
     }
 
     private func createSlider() -> UISlider {
         let slider = UISlider()
-
-        if let configurable = viewModel.device as? Configurable {
-            if let activable = viewModel.device as? Activable {
-                slider.minimumValueImage = activable.getOffImage().withSize(of: Constants.imageStatusSize)
-                slider.maximumValueImage = activable.getOnImage().withSize(of: Constants.imageStatusSize)
-            }
-            slider.maximumValue = Float(configurable.getMaxValue())
-            slider.minimumValue = Float(configurable.getMinValue())
-            slider.value = Float(configurable.getCurrentValue())
-        } else {
-            slider.isHidden = true
-        }
-
+        let device = viewModel.device
+        slider.minimumValueImage = device.getOffImage().withSize(of: Constants.imageStatusSize)
+        slider.maximumValueImage = device.getOnImage().withSize(of: Constants.imageStatusSize)
+        slider.maximumValue = Float(device.getMaxValue())
+        slider.minimumValue = Float(device.getMinValue())
+        slider.value = Float(device.getCurrentValue())
         slider.addTarget(self, action: #selector(self.didTouchSlider), for: .allTouchEvents)
         return slider
     }
 
     private func createLabelStatus() -> UILabel {
         let label = UILabel()
-        if let activable = viewModel.device as? Activable {
-            label.text = "The device is \(activable.getMode())"
-            label.font = .systemFont(ofSize: 16, weight: .bold)
-        } else {
-            label.isHidden = true
-        }
+        label.text = viewModel.statusText
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }
 }

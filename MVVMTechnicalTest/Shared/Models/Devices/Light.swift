@@ -19,7 +19,7 @@ final class Light: Device, Configurable, Activable {
     let productType: String
     var mode: Bool
 
-    var intensity: UInt
+    var intensity: Float
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,11 +39,14 @@ final class Light: Device, Configurable, Activable {
         productType = try values.decode(String.self, forKey: .productType)
         let tmpMode = try values.decode(String.self, forKey: .mode)
         mode = tmpMode == "ON" ? true : false
-        intensity = try values.decode(UInt.self, forKey: .intensity)
+        intensity = try values.decode(Float.self, forKey: .intensity)
     }
 
-    func getDisplayString() -> String {
-        return "\(getMode()) at \(intensity)%"
+    func getStatus() -> String {
+        if !self.mode {
+            return "\(self.getMode())"
+        }
+        return "\(self.getMode()) at \(Int(self.getCurrentValue()))%"
     }
 
     func getImage() -> UIImage {
@@ -58,12 +61,12 @@ final class Light: Device, Configurable, Activable {
 // MARK: - Configurable
 
 extension Light {
-    func setCurrentValue(newValue: UInt) {
+    func setCurrentValue(newValue: Float) {
         self.intensity = newValue
     }
 
-    func getCurrentValue() -> UInt {
-        self.intensity
+    func getCurrentValue() -> Float {
+        round(self.intensity)
     }
 
     func getMaxValue() -> UInt {

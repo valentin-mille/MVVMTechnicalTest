@@ -13,7 +13,7 @@ protocol Device: Codable {
     var deviceName: String { get }
     var productType: String { get }
 
-    func getDisplayString() -> String
+    func getStatus() -> String
     func getImage() -> UIImage
     func isConfigurable() -> Bool
     func isActivable() -> Bool
@@ -28,8 +28,8 @@ protocol Activable {
 }
 
 protocol Configurable: Codable {
-    func setCurrentValue(newValue: UInt)
-    func getCurrentValue() -> UInt
+    func setCurrentValue(newValue: Float)
+    func getCurrentValue() -> Float
     func getMaxValue() -> UInt
     func getMinValue() -> UInt
 }

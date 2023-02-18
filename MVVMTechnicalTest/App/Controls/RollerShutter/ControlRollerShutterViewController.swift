@@ -1,5 +1,5 @@
 //
-//  ControlVerticalViewController.swift
+//  ControlRollerShutterViewController.swift
 //  MVVMTechnicalTest
 //
 //  Created by Valentin Mille on 2/18/23.
@@ -10,19 +10,20 @@ import UIKit
 
 private enum Constants {
     static let stackViewSpacing: CGFloat = 20
+    static let imageStatusSize = CGSize(width: 50, height: 50)
 }
 
-final class ControlVerticalViewController: UIViewController {
+final class ControlRollerShutterViewController: UIViewController {
 
-    var viewModel: ControlViewModel
+    var viewModel: ControlRollerShutterViewModel
 
     private lazy var stackViewHorizontal = createStackView()
-    private lazy var imageStatus = createImageStatusView()
     private lazy var labelStatus = createLabelStatus()
+    private lazy var imageStatus = createImageStatusView()
     private lazy var slider = createSlider()
 
     init(
-        viewModel: ControlViewModel
+        viewModel: ControlRollerShutterViewModel
     ) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -42,13 +43,9 @@ final class ControlVerticalViewController: UIViewController {
         self.setupConstraints()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateLabelStatus()
-    }
-
     private func buildViewHierarchy() {
         stackViewHorizontal.addArrangedSubview(imageStatus)
+        stackViewHorizontal.addArrangedSubview(labelStatus)
         stackViewHorizontal.addArrangedSubview(slider)
         view.addSubview(stackViewHorizontal)
     }
@@ -64,20 +61,12 @@ final class ControlVerticalViewController: UIViewController {
 
     @objc
     private func didTouchSlider(sender: UISlider) {
-        guard let configurable = self.viewModel.device as? Configurable,
-            sender.value > 0
-        else { return }
-        configurable.setCurrentValue(newValue: UInt(sender.value))
-        updateLabelStatus()
-    }
-
-    private func updateLabelStatus() {
-        guard let configurable = viewModel.device as? Configurable else { return }
-        labelStatus.text = "The \(viewModel.device.deviceName) is at \(configurable.getCurrentValue())"
+        self.viewModel.configureDevice(value: sender.value)
+        labelStatus.text = self.viewModel.statusText
     }
 }
 
-extension ControlVerticalViewController {
+extension ControlRollerShutterViewController {
     private func createImageStatusView() -> UIImageView {
         let image = viewModel.device.getImage()
         let imageView = UIImageView(image: image)
@@ -98,27 +87,18 @@ extension ControlVerticalViewController {
 
     private func createSlider() -> UISlider {
         let slider = UISlider()
-
-        if let configurable = viewModel.device as? Configurable {
-            slider.maximumValue = Float(configurable.getMaxValue())
-            slider.minimumValue = Float(configurable.getMinValue())
-            slider.value = Float(configurable.getCurrentValue())
-            slider.transform = CGAffineTransform(rotationAngle: CGFloat(-CGFloat.pi / 2))
-        } else {
-            slider.isHidden = true
-        }
-
+        let device = viewModel.device
+        slider.maximumValue = Float(device.getMaxValue())
+        slider.minimumValue = Float(device.getMinValue())
+        slider.value = Float(device.getCurrentValue())
         slider.addTarget(self, action: #selector(self.didTouchSlider), for: .allTouchEvents)
         return slider
     }
 
     private func createLabelStatus() -> UILabel {
         let label = UILabel()
-        if viewModel.device.isConfigurable() {
-            label.font = .systemFont(ofSize: 16, weight: .bold)
-        } else {
-            label.isHidden = true
-        }
+        label.text = viewModel.statusText
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }
 }

@@ -46,8 +46,21 @@ final class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: HomeViewControllerFlowDelegate {
     func didSelect(device selectedDevice: Device) {
-        let viewModel = ControlViewModel(device: selectedDevice)
-        let controlVC = ControlHorizontalViewController(viewModel: viewModel)
+        let controlVC: UIViewController
+
+        switch selectedDevice {
+        case let heater as Heater:
+            let viewModel = ControlHeaterViewModel(device: heater)
+            controlVC = ControlHeaterViewController(viewModel: viewModel)
+        case let light as Light:
+            let viewModel = ControlLightViewModel(device: light)
+            controlVC = ControlLightViewController(viewModel: viewModel)
+        case let rollerShutter as RollerShutter:
+            let viewModel = ControlRollerShutterViewModel(device: rollerShutter)
+            controlVC = ControlRollerShutterViewController(viewModel: viewModel)
+        default:
+            controlVC = UIViewController()
+        }
 
         self.router.push(controlVC, animated: true, onDismiss: nil)
     }

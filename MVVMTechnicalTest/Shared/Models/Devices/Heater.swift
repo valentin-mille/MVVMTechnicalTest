@@ -19,7 +19,7 @@ final class Heater: Device, Configurable, Activable {
     let productType: String
     var mode: Bool
 
-    var temperature: UInt
+    var temperature: Float
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -40,14 +40,14 @@ final class Heater: Device, Configurable, Activable {
         productType = try values.decode(String.self, forKey: .productType)
         let tmpMode = try values.decode(String.self, forKey: .mode)
         mode = tmpMode == "ON" ? true : false
-        temperature = try values.decode(UInt.self, forKey: .temperature)
+        temperature = try values.decode(Float.self, forKey: .temperature)
     }
 
-    func getDisplayString() -> String {
-        if mode {
-            return "On at \(temperature)°C"
+    func getStatus() -> String {
+        if !self.mode {
+            return "\(self.getMode())"
         }
-        return "Off"
+        return "\(self.getMode()) at \(self.getCurrentValue())°"
     }
 
     func getImage() -> UIImage {
@@ -62,11 +62,11 @@ final class Heater: Device, Configurable, Activable {
 // MARK: - Configurable
 
 extension Heater {
-    func setCurrentValue(newValue: UInt) {
+    func setCurrentValue(newValue: Float) {
         self.temperature = newValue
     }
 
-    func getCurrentValue() -> UInt {
+    func getCurrentValue() -> Float {
         self.temperature
     }
 

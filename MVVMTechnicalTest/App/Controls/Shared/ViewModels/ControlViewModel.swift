@@ -7,12 +7,18 @@
 
 import Foundation
 
-final class ControlViewModel {
-    let device: Device
+protocol ControlViewModel {
+    associatedtype DeviceControlled
 
-    init(
-        device: Device
-    ) {
-        self.device = device
-    }
+    var device: DeviceControlled { get set }
+
+    init(device: DeviceControlled)
+}
+
+protocol ControlConfigurable {
+    func configureDevice(value: Float)
+}
+
+protocol ControlActivable {
+    func activateDevice(isActivated: Bool)
 }
