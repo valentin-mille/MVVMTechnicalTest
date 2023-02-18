@@ -11,42 +11,84 @@ final class HomeViewController: UIViewController {
 
     private lazy var tableView: UITableView = createTableView()
     private lazy var viewModel = createHomeViewModel()
-    private let label = UILabel()
 
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Devices"
         self.buildViewHierarchy()
         self.setupConstraints()
-        viewModel.loadDeviceList()
+        self.viewModel.loadDeviceList { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
 
     private func buildViewHierarchy() {
-        label.text = "Hello World"
         view.backgroundColor = .white
-        view.addSubview(label)
+        view.addSubview(tableView)
     }
 
     private func setupConstraints() {
-        label.autoFit()
+        tableView.autoFit()
+    }
+
+    private func configureCell(cell: UITableViewCell, device: Device) {
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = device.deviceName
+        configuration.secondaryText = device.getDisplayString()
+        configuration.image = device.getImage()
+        configuration.imageProperties.maximumSize = CGSize(width: 50, height: 50)
+        configuration.textProperties.font = .systemFont(ofSize: 16, weight: .bold)
+        cell.accessoryType = .disclosureIndicator
+        cell.contentConfiguration = configuration
     }
 
 }
 
 // MARK: - UITableViewDataSource
 
-//extension HomeViewController: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
-//}
+extension HomeViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewModel.deviceList?.devices.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //        switch self.viewModel.deviceList.devices[indexPath.row] {
+        //        case .light(let light):
+        //            if let cell = tableView.dequeueReusableCell(withIdentifier: LightTableViewCell.reuseIdentifier, for: indexPath) as? LightTableViewCell {
+        //                cell.updateCell(light: light)
+        //                return cell
+        //            }
+        //        case .rollerShutter(let rollerShutter):
+        //            if let cell = tableView.dequeueReusableCell(withIdentifier: RollerShutterTableViewCell.reuseIdentifier, for: indexPath) as? RollerShutterTableViewCell {
+        //                cell.updateCell(rollerShutter: rollerShutter)
+        //                return cell
+        //            }
+        //        case .heater(let heater):
+        //            if let cell = tableView.dequeueReusableCell(withIdentifier: HeaterTableViewCell.reuseIdentifier, for: indexPath) as?  HeaterTableViewCell {
+        //                return cell
+        //            }
+        //        }
+        guard let devices = self.viewModel.deviceList?.devices else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description(), for: indexPath)
+        switch devices[indexPath.row] {
+        case .light(let light):
+            configureCell(cell: cell, device: light)
+        case .rollerShutter(let rollerShutter):
+            configureCell(cell: cell, device: rollerShutter)
+        case .heater(let heater):
+            configureCell(cell: cell, device: heater)
+        }
+
+        return cell
+    }
+
+}
 
 // MARK: - UITableViewDelegate
 
@@ -56,18 +98,18 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController {
     private func createTableView() -> UITableView {
-        let tableView = UITableView()
-        //        tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
-        return UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        //        tableView.register(HeaterTableViewCell.self, forCellReuseIdentifier: HeaterTableViewCell.reuseIdentifier)
+        //        tableView.register(LightTableViewCell.self, forCellReuseIdentifier: LightTableViewCell.reuseIdentifier)
+        //        tableView.register(RollerShutterTableViewCell.self, forCellReuseIdentifier: RollerShutterTableViewCell.reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
     }
 
     private func createHomeViewModel() -> HomeViewModel {
         return HomeViewModel(service: DeviceService())
     }
 
-    //    private func createDefaultModel() -> DeviceList {
-    //        let model = DeviceList(devices: [
-    //            Header(id: <#T##UInt#>, deviceName: <#T##String#>, productType: <#T##String#>, mode: <#T##Bool#>, temperature: <#T##Int#>)
-    //        ])
-    //    }
 }

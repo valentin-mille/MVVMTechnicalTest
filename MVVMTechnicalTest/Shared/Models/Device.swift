@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Device: Codable {
     var id: UInt { get }
     var deviceName: String { get }
     var productType: String { get }
+
+    func getDisplayString() -> String
+    func getImage() -> UIImage
 }
 
 protocol Configurable: Codable {

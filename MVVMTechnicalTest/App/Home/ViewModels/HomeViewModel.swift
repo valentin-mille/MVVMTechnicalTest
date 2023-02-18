@@ -10,6 +10,7 @@ import Foundation
 final class HomeViewModel {
 
     private let service: DeviceService
+    private(set) var deviceList: DeviceList?
 
     init(
         service: DeviceService
@@ -17,11 +18,12 @@ final class HomeViewModel {
         self.service = service
     }
 
-    func loadDeviceList() {
+    func loadDeviceList(completionHandler: @escaping () -> Void) {
         self.service.getDeviceList(completion: { result in
             switch result {
             case .success(let deviceList):
-                print(deviceList.devices)
+                self.deviceList = deviceList
+                completionHandler()
             case .failure(let error):
                 print("Error: \(error)")
             }

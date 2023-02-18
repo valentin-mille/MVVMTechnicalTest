@@ -5,7 +5,10 @@
 //  Created by Valentin Mille on 2/16/23.
 //
 
+import UIKit
+
 struct Heater: Device, Configurable {
+
     let id: UInt
     let deviceName: String
     let productType: String
@@ -34,4 +37,19 @@ struct Heater: Device, Configurable {
         mode = tmpMode == "ON" ? true : false
         temperature = try values.decode(Int.self, forKey: .temperature)
     }
+
+    func getDisplayString() -> String {
+        if mode {
+            return "On at \(temperature)°C"
+        }
+        return "Off"
+    }
+
+    func getImage() -> UIImage {
+        if mode {
+            return Assets.Images.Device.deviceHeaterOnIcon.image
+        }
+        return Assets.Images.Device.deviceHeaterOffIcon.image
+    }
+
 }

@@ -10,6 +10,13 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
+  public enum Device {
+    /// Localizable.strings
+    ///   MVVMTechnicalTest
+    /// 
+    ///   Created by Valentin Mille on 2/14/23.
+    public static let light = Strings.tr("Localizable", "device.light", fallback: "Light")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
