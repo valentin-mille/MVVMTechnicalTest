@@ -7,12 +7,17 @@
 
 import UIKit
 
-struct RollerShutter: Device {
+private enum Constants {
+    static let rollerShutterMaxPosition: UInt = 28
+    static let rollerShutterMinPosition: UInt = 7
+}
+
+final class RollerShutter: Device, Configurable {
     let id: UInt
     let deviceName: String
     let productType: String
 
-    let position: UInt
+    var position: UInt
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -43,5 +48,25 @@ struct RollerShutter: Device {
 
     func getImage() -> UIImage {
         return Assets.Images.Device.deviceRollerShutterIcon.image
+    }
+}
+
+// MARK: - Configurable
+
+extension RollerShutter {
+    func setCurrentValue(newValue: UInt) {
+        self.position = newValue
+    }
+
+    func getCurrentValue() -> UInt {
+        self.position
+    }
+
+    func getMaxValue() -> UInt {
+        Constants.rollerShutterMaxPosition
+    }
+
+    func getMinValue() -> UInt {
+        Constants.rollerShutterMinPosition
     }
 }

@@ -7,16 +7,20 @@
 
 import UIKit
 
+protocol HomeViewControllerFlowDelegate: AnyObject {
+    func didSelect(device selectedDevice: Device)
+}
+
 final class HomeViewController: UIViewController {
 
     private lazy var tableView: UITableView = createTableView()
     private lazy var viewModel = createHomeViewModel()
+    weak var flowDelegate: HomeViewControllerFlowDelegate?
 
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Devices"
         self.buildViewHierarchy()
         self.setupConstraints()
@@ -27,13 +31,18 @@ final class HomeViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
     private func buildViewHierarchy() {
         view.backgroundColor = .white
         view.addSubview(tableView)
     }
 
     private func setupConstraints() {
-        tableView.autoFit()
+        tableView.autoFit(inSafeArea: false)
     }
 
     private func configureCell(cell: UITableViewCell, device: Device) {
@@ -55,6 +64,11 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.viewModel.devices.count
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let device = self.viewModel.devices[indexPath.row]
+        self.flowDelegate?.didSelect(device: device)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

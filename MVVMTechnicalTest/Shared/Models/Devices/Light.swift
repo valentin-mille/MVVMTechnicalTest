@@ -7,13 +7,19 @@
 
 import UIKit
 
-struct Light: Device, Configurable {
+private enum Constants {
+    static let lightMaxIntensity: UInt = 100
+    static let lightMinIntensity: UInt = 0
+}
+
+final class Light: Device, Configurable, Activable {
+
     let id: UInt
     let deviceName: String
     let productType: String
-    let mode: Bool
+    var mode: Bool
 
-    let intensity: UInt
+    var intensity: UInt
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -47,7 +53,36 @@ struct Light: Device, Configurable {
         return Assets.Images.Device.deviceLightOffIcon.image
     }
 
-    private func getMode() -> String {
-        return mode ? "On" : "Off"
+}
+
+// MARK: - Configurable
+
+extension Light {
+    func setCurrentValue(newValue: UInt) {
+        self.intensity = newValue
+    }
+
+    func getCurrentValue() -> UInt {
+        self.intensity
+    }
+
+    func getMaxValue() -> UInt {
+        Constants.lightMaxIntensity
+    }
+
+    func getMinValue() -> UInt {
+        Constants.lightMinIntensity
+    }
+}
+
+// MARK: - Activable
+
+extension Light {
+    func getOnImage() -> UIImage {
+        return Assets.Images.Device.deviceLightOnIcon.image
+    }
+
+    func getOffImage() -> UIImage {
+        return Assets.Images.Device.deviceLightOffIcon.image
     }
 }

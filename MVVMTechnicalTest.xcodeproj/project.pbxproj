@@ -24,6 +24,11 @@
 		43363274299E813E00173329 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363273299E813E00173329 /* HomeCoordinator.swift */; };
 		43363276299E8B2C00173329 /* DeviceListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363275299E8B2C00173329 /* DeviceListData.swift */; };
 		43363278299E92C200173329 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363277299E92C200173329 /* DeviceService.swift */; };
+		43508E9E29A0DDA000B8D8D9 /* ControlHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508E9D29A0DDA000B8D8D9 /* ControlHorizontalViewController.swift */; };
+		43508EA329A0DF3F00B8D8D9 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA229A0DF3F00B8D8D9 /* ControlViewModel.swift */; };
+		43508EA529A1032200B8D8D9 /* UImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA429A1032200B8D8D9 /* UImage+Resize.swift */; };
+		43508EA929A1324700B8D8D9 /* ControlVerticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA829A1324700B8D8D9 /* ControlVerticalViewController.swift */; };
+		43508EAF29A138BC00B8D8D9 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */; };
 		43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */; };
 		43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */; };
 		43EA19FB299B5F2A0062E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EA19FA299B5F2A0062E0AF /* Assets.xcassets */; };
@@ -75,6 +80,11 @@
 		43363273299E813E00173329 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		43363275299E8B2C00173329 /* DeviceListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListData.swift; sourceTree = "<group>"; };
 		43363277299E92C200173329 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		43508E9D29A0DDA000B8D8D9 /* ControlHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlHorizontalViewController.swift; sourceTree = "<group>"; };
+		43508EA229A0DF3F00B8D8D9 /* ControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
+		43508EA429A1032200B8D8D9 /* UImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Resize.swift"; sourceTree = "<group>"; };
+		43508EA829A1324700B8D8D9 /* ControlVerticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlVerticalViewController.swift; sourceTree = "<group>"; };
+		43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		43EA19EE299B5F2A0062E0AF /* MVVMTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,7 +144,6 @@
 			children = (
 				4336325C299E771400173329 /* HomeViewController.swift */,
 				43363273299E813E00173329 /* HomeCoordinator.swift */,
-				4336324C299E3DB400173329 /* Views */,
 				4336324B299E3DAB00173329 /* ViewModels */,
 				43363249299E3D9100173329 /* Models */,
 			);
@@ -147,13 +156,6 @@
 				43363261299E79CB00173329 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		4336324C299E3DB400173329 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4336324D299E3DC100173329 /* Models */ = {
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				43363258299E462000173329 /* UIView+AutoLayout.swift */,
+				43508EA429A1032200B8D8D9 /* UImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4336324A299E3D9C00173329 /* Home */,
+				43508E9C29A0DC7F00B8D8D9 /* Controls */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -231,6 +235,49 @@
 				43363271299E810500173329 /* NavigationControllerRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		43508E9C29A0DC7F00B8D8D9 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				43508EAD29A1370E00B8D8D9 /* Horizontal */,
+				43508EA729A1323800B8D8D9 /* Vertical */,
+				43508EA629A1322D00B8D8D9 /* Shared */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		43508E9F29A0DDA200B8D8D9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				43508EA229A0DF3F00B8D8D9 /* ControlViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		43508EA629A1322D00B8D8D9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				43508E9F29A0DDA200B8D8D9 /* ViewModels */,
+				43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		43508EA729A1323800B8D8D9 /* Vertical */ = {
+			isa = PBXGroup;
+			children = (
+				43508EA829A1324700B8D8D9 /* ControlVerticalViewController.swift */,
+			);
+			path = Vertical;
+			sourceTree = "<group>";
+		};
+		43508EAD29A1370E00B8D8D9 /* Horizontal */ = {
+			isa = PBXGroup;
+			children = (
+				43508E9D29A0DDA000B8D8D9 /* ControlHorizontalViewController.swift */,
+			);
+			path = Horizontal;
 			sourceTree = "<group>";
 		};
 		43EA19E5299B5F2A0062E0AF = {
@@ -487,14 +534,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				43363256299E418300173329 /* Heater.swift in Sources */,
+				43508EA529A1032200B8D8D9 /* UImage+Resize.swift in Sources */,
 				4336326E299E80D600173329 /* WindowRouter.swift in Sources */,
 				43EA1A37299B6B360062E0AF /* Reachability.swift in Sources */,
 				43363254299E405200173329 /* RollerShutter.swift in Sources */,
 				43363270299E80E300173329 /* AppWindowRouter.swift in Sources */,
+				43508EAF29A138BC00B8D8D9 /* ControlViewController.swift in Sources */,
 				43363274299E813E00173329 /* HomeCoordinator.swift in Sources */,
 				43363262299E79CB00173329 /* HomeViewModel.swift in Sources */,
 				43363266299E806D00173329 /* NavigationRouter.swift in Sources */,
 				43363272299E810500173329 /* NavigationControllerRouter.swift in Sources */,
+				43508E9E29A0DDA000B8D8D9 /* ControlHorizontalViewController.swift in Sources */,
 				43EA1A32299B68F40062E0AF /* Strings+Generated.swift in Sources */,
 				4336325D299E771400173329 /* HomeViewController.swift in Sources */,
 				4336324F299E3DD600173329 /* Device.swift in Sources */,
@@ -506,9 +556,11 @@
 				43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */,
 				43363278299E92C200173329 /* DeviceService.swift in Sources */,
 				43363252299E3EEE00173329 /* Light.swift in Sources */,
+				43508EA329A0DF3F00B8D8D9 /* ControlViewModel.swift in Sources */,
 				43363269299E808C00173329 /* Presentable.swift in Sources */,
 				43EA1A35299B6ADD0062E0AF /* Endpoints.swift in Sources */,
 				43EA1A39299B6B570062E0AF /* URLSession+Service.swift in Sources */,
+				43508EA929A1324700B8D8D9 /* ControlVerticalViewController.swift in Sources */,
 				43EA1A31299B68F40062E0AF /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,8 +15,39 @@ protocol Device: Codable {
 
     func getDisplayString() -> String
     func getImage() -> UIImage
+    func isConfigurable() -> Bool
+    func isActivable() -> Bool
+}
+
+protocol Activable {
+    var mode: Bool { get set }
+
+    func getMode() -> String
+    func getOffImage() -> UIImage
+    func getOnImage() -> UIImage
 }
 
 protocol Configurable: Codable {
-    var mode: Bool { get }
+    func setCurrentValue(newValue: UInt)
+    func getCurrentValue() -> UInt
+    func getMaxValue() -> UInt
+    func getMinValue() -> UInt
+}
+
+// MARK: - Default implementations
+
+extension Activable {
+    func getMode() -> String {
+        return mode ? "On" : "Off"
+    }
+}
+
+extension Device {
+    func isConfigurable() -> Bool {
+        return self is Configurable
+    }
+
+    func isActivable() -> Bool {
+        return self is Activable
+    }
 }

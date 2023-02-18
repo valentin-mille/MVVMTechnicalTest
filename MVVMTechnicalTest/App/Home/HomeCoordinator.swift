@@ -44,10 +44,21 @@ final class HomeCoordinator: Coordinator {
 
 }
 
+extension HomeCoordinator: HomeViewControllerFlowDelegate {
+    func didSelect(device selectedDevice: Device) {
+        let viewModel = ControlViewModel(device: selectedDevice)
+        let controlVC = ControlHorizontalViewController(viewModel: viewModel)
+
+        self.router.push(controlVC, animated: true, onDismiss: nil)
+    }
+}
+
 extension HomeCoordinator {
 
     private func createHomeViewController() -> UIViewController {
         let homeVC = HomeViewController()
+
+        homeVC.flowDelegate = self
         return homeVC
     }
 }

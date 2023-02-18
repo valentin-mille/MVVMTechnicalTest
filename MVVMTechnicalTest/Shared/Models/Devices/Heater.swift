@@ -7,14 +7,19 @@
 
 import UIKit
 
-struct Heater: Device, Configurable {
+private enum Constants {
+    static let heaterMaxTemperature: UInt = 28
+    static let heaterMinTemperature: UInt = 7
+}
+
+final class Heater: Device, Configurable, Activable {
 
     let id: UInt
     let deviceName: String
     let productType: String
-    let mode: Bool
+    var mode: Bool
 
-    let temperature: Int
+    var temperature: UInt
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,7 +40,7 @@ struct Heater: Device, Configurable {
         productType = try values.decode(String.self, forKey: .productType)
         let tmpMode = try values.decode(String.self, forKey: .mode)
         mode = tmpMode == "ON" ? true : false
-        temperature = try values.decode(Int.self, forKey: .temperature)
+        temperature = try values.decode(UInt.self, forKey: .temperature)
     }
 
     func getDisplayString() -> String {
@@ -47,9 +52,41 @@ struct Heater: Device, Configurable {
 
     func getImage() -> UIImage {
         if mode {
-            return Assets.Images.Device.deviceHeaterOnIcon.image
+            return getOnImage()
         }
-        return Assets.Images.Device.deviceHeaterOffIcon.image
+        return getOffImage()
     }
 
+}
+
+// MARK: - Configurable
+
+extension Heater {
+    func setCurrentValue(newValue: UInt) {
+        self.temperature = newValue
+    }
+
+    func getCurrentValue() -> UInt {
+        self.temperature
+    }
+
+    func getMaxValue() -> UInt {
+        Constants.heaterMaxTemperature
+    }
+
+    func getMinValue() -> UInt {
+        Constants.heaterMinTemperature
+    }
+}
+
+// MARK: - Activable
+
+extension Heater {
+    func getOnImage() -> UIImage {
+        return Assets.Images.Device.deviceHeaterOnIcon.image
+    }
+
+    func getOffImage() -> UIImage {
+        return Assets.Images.Device.deviceHeaterOffIcon.image
+    }
 }
