@@ -28,7 +28,6 @@
 		43508EA329A0DF3F00B8D8D9 /* ControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA229A0DF3F00B8D8D9 /* ControlViewModel.swift */; };
 		43508EA529A1032200B8D8D9 /* UImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA429A1032200B8D8D9 /* UImage+Resize.swift */; };
 		43508EA929A1324700B8D8D9 /* ControlRollerShutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EA829A1324700B8D8D9 /* ControlRollerShutterViewController.swift */; };
-		43508EAF29A138BC00B8D8D9 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */; };
 		43508EB429A13C7000B8D8D9 /* ControlHeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EB329A13C7000B8D8D9 /* ControlHeaterViewController.swift */; };
 		43508EB729A184BF00B8D8D9 /* ControlHeaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EB629A184BF00B8D8D9 /* ControlHeaterViewModel.swift */; };
 		43508EBA29A1872E00B8D8D9 /* ControlLightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EB929A1872E00B8D8D9 /* ControlLightViewModel.swift */; };
@@ -88,7 +87,6 @@
 		43508EA229A0DF3F00B8D8D9 /* ControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewModel.swift; sourceTree = "<group>"; };
 		43508EA429A1032200B8D8D9 /* UImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+Resize.swift"; sourceTree = "<group>"; };
 		43508EA829A1324700B8D8D9 /* ControlRollerShutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlRollerShutterViewController.swift; sourceTree = "<group>"; };
-		43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		43508EB329A13C7000B8D8D9 /* ControlHeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlHeaterViewController.swift; sourceTree = "<group>"; };
 		43508EB629A184BF00B8D8D9 /* ControlHeaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlHeaterViewModel.swift; sourceTree = "<group>"; };
 		43508EB929A1872E00B8D8D9 /* ControlLightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlLightViewModel.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				43508E9F29A0DDA200B8D8D9 /* ViewModels */,
-				43508EAE29A138BC00B8D8D9 /* ControlViewController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -584,7 +581,6 @@
 				43EA1A37299B6B360062E0AF /* Reachability.swift in Sources */,
 				43363254299E405200173329 /* RollerShutter.swift in Sources */,
 				43363270299E80E300173329 /* AppWindowRouter.swift in Sources */,
-				43508EAF29A138BC00B8D8D9 /* ControlViewController.swift in Sources */,
 				43363274299E813E00173329 /* HomeCoordinator.swift in Sources */,
 				43363262299E79CB00173329 /* HomeViewModel.swift in Sources */,
 				43363266299E806D00173329 /* NavigationRouter.swift in Sources */,

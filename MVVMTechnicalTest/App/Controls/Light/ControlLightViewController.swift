@@ -87,7 +87,7 @@ extension ControlLightViewController {
     private func createStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.spacing = Constants.stackViewSpacing
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fill
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false

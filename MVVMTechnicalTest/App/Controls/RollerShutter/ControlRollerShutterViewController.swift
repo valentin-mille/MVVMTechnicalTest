@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 private enum Constants {
-    static let stackViewSpacing: CGFloat = 20
+    static let stackViewSpacing: CGFloat = 10
     static let imageStatusSize = CGSize(width: 50, height: 50)
 }
 
@@ -53,8 +53,6 @@ final class ControlRollerShutterViewController: UIViewController {
     private func setupConstraints() {
         imageStatus.setHeight(to: 200)
         labelStatus.setHeight(to: 50)
-        slider.setHeight(to: 50)
-        slider.autoFitLeading(spacing: 20)
         slider.setWidth(to: view.frame.width)
         stackViewHorizontal.autoFit(inSafeArea: true)
     }
@@ -78,7 +76,7 @@ extension ControlRollerShutterViewController {
     private func createStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.spacing = Constants.stackViewSpacing
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fill
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +89,7 @@ extension ControlRollerShutterViewController {
         slider.maximumValue = Float(device.getMaxValue())
         slider.minimumValue = Float(device.getMinValue())
         slider.value = Float(device.getCurrentValue())
+        slider.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 2))
         slider.addTarget(self, action: #selector(self.didTouchSlider), for: .allTouchEvents)
         return slider
     }
