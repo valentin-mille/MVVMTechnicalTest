@@ -7,22 +7,43 @@
 
 import Foundation
 
+struct DeviceListDataMapper {
+    func createDevices(from deviceListData: DeviceListData) -> [Device] {
+        var devices: [Device] = []
+
+        for deviceType in deviceListData.devices {
+            switch deviceType {
+            case .light(let light):
+                devices.append(light)
+            case .heater(let heater):
+                devices.append(heater)
+            case .rollerShutter(let rollerShutter):
+                devices.append(rollerShutter)
+            }
+        }
+        return devices
+    }
+}
+
 final class HomeViewModel {
 
     private let service: DeviceService
-    private(set) var deviceList: DeviceList?
+    private let mapper: DeviceListDataMapper
+    private(set) var devices: [Device] = []
 
     init(
-        service: DeviceService
+        service: DeviceService,
+        mapper: DeviceListDataMapper
     ) {
         self.service = service
+        self.mapper = mapper
     }
 
     func loadDeviceList(completionHandler: @escaping () -> Void) {
         self.service.getDeviceList(completion: { result in
             switch result {
             case .success(let deviceList):
-                self.deviceList = deviceList
+                self.devices = self.mapper.createDevices(from: deviceList)
                 completionHandler()
             case .failure(let error):
                 print("Error: \(error)")

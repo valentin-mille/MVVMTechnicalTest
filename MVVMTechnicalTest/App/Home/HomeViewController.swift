@@ -54,20 +54,14 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.viewModel.deviceList?.devices.count ?? 0
+        self.viewModel.devices.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let devices = self.viewModel.deviceList?.devices else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description(), for: indexPath)
-        switch devices[indexPath.row] {
-        case .light(let light):
-            configureCell(cell: cell, device: light)
-        case .rollerShutter(let rollerShutter):
-            configureCell(cell: cell, device: rollerShutter)
-        case .heater(let heater):
-            configureCell(cell: cell, device: heater)
-        }
+        let device = self.viewModel.devices[indexPath.row]
+
+        configureCell(cell: cell, device: device)
 
         return cell
     }
@@ -90,7 +84,10 @@ extension HomeViewController {
     }
 
     private func createHomeViewModel() -> HomeViewModel {
-        return HomeViewModel(service: DeviceService())
+        let service = DeviceService()
+        let mapper = DeviceListDataMapper()
+        let viewModel = HomeViewModel(service: service, mapper: mapper)
+        return viewModel
     }
 
 }

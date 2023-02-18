@@ -9,13 +9,13 @@ import Foundation
 
 protocol DeviceServiceType {
 
-    func getDeviceList(completion: @escaping (Result<DeviceList, APIServiceError>) -> Void)
+    func getDeviceList(completion: @escaping (Result<DeviceListData, APIServiceError>) -> Void)
 
 }
 
 final class DeviceService: DeviceServiceType {
 
-    func getDeviceList(completion: @escaping (Result<DeviceList, APIServiceError>) -> Void) {
+    func getDeviceList(completion: @escaping (Result<DeviceListData, APIServiceError>) -> Void) {
         guard let url = URL(string: EndPoints.deviceList) else {
             completion(.failure(.invalidUrl))
             return

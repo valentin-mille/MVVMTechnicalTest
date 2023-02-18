@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DeviceList: Decodable {
+struct DeviceListData: Decodable {
     let devices: [DeviceType]
 
     enum CodingKeys: String, CodingKey {
