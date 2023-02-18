@@ -13,7 +13,6 @@
 		43363256299E418300173329 /* Heater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363255299E418300173329 /* Heater.swift */; };
 		43363259299E462000173329 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363258299E462000173329 /* UIView+AutoLayout.swift */; };
 		4336325D299E771400173329 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336325C299E771400173329 /* HomeViewController.swift */; };
-		43363260299E795C00173329 /* HeaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4336325F299E795C00173329 /* HeaterTableViewCell.swift */; };
 		43363262299E79CB00173329 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363261299E79CB00173329 /* HomeViewModel.swift */; };
 		43363264299E805B00173329 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363263299E805B00173329 /* Coordinator.swift */; };
 		43363266299E806D00173329 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363265299E806D00173329 /* NavigationRouter.swift */; };
@@ -25,8 +24,6 @@
 		43363274299E813E00173329 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363273299E813E00173329 /* HomeCoordinator.swift */; };
 		43363276299E8B2C00173329 /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363275299E8B2C00173329 /* DeviceList.swift */; };
 		43363278299E92C200173329 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43363277299E92C200173329 /* DeviceService.swift */; };
-		43508E99299FF73500B8D8D9 /* RollerShutterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508E98299FF73500B8D8D9 /* RollerShutterTableViewCell.swift */; };
-		43508E9B299FF7A800B8D8D9 /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508E9A299FF7A800B8D8D9 /* LightTableViewCell.swift */; };
 		43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */; };
 		43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */; };
 		43EA19FB299B5F2A0062E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EA19FA299B5F2A0062E0AF /* Assets.xcassets */; };
@@ -67,7 +64,6 @@
 		43363255299E418300173329 /* Heater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heater.swift; sourceTree = "<group>"; };
 		43363258299E462000173329 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		4336325C299E771400173329 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4336325F299E795C00173329 /* HeaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterTableViewCell.swift; sourceTree = "<group>"; };
 		43363261299E79CB00173329 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		43363263299E805B00173329 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		43363265299E806D00173329 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -79,8 +75,6 @@
 		43363273299E813E00173329 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		43363275299E8B2C00173329 /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
 		43363277299E92C200173329 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
-		43508E98299FF73500B8D8D9 /* RollerShutterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollerShutterTableViewCell.swift; sourceTree = "<group>"; };
-		43508E9A299FF7A800B8D8D9 /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		43EA19EE299B5F2A0062E0AF /* MVVMTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +152,6 @@
 		4336324C299E3DB400173329 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				43508E97299FF5FF00B8D8D9 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,16 +231,6 @@
 				43363271299E810500173329 /* NavigationControllerRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		43508E97299FF5FF00B8D8D9 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				4336325F299E795C00173329 /* HeaterTableViewCell.swift */,
-				43508E98299FF73500B8D8D9 /* RollerShutterTableViewCell.swift */,
-				43508E9A299FF7A800B8D8D9 /* LightTableViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		43EA19E5299B5F2A0062E0AF = {
@@ -507,7 +490,6 @@
 				4336326E299E80D600173329 /* WindowRouter.swift in Sources */,
 				43EA1A37299B6B360062E0AF /* Reachability.swift in Sources */,
 				43363254299E405200173329 /* RollerShutter.swift in Sources */,
-				43508E9B299FF7A800B8D8D9 /* LightTableViewCell.swift in Sources */,
 				43363270299E80E300173329 /* AppWindowRouter.swift in Sources */,
 				43363274299E813E00173329 /* HomeCoordinator.swift in Sources */,
 				43363262299E79CB00173329 /* HomeViewModel.swift in Sources */,
@@ -515,10 +497,8 @@
 				43363272299E810500173329 /* NavigationControllerRouter.swift in Sources */,
 				43EA1A32299B68F40062E0AF /* Strings+Generated.swift in Sources */,
 				4336325D299E771400173329 /* HomeViewController.swift in Sources */,
-				43363260299E795C00173329 /* HeaterTableViewCell.swift in Sources */,
 				4336324F299E3DD600173329 /* Device.swift in Sources */,
 				43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */,
-				43508E99299FF73500B8D8D9 /* RollerShutterTableViewCell.swift in Sources */,
 				43363264299E805B00173329 /* Coordinator.swift in Sources */,
 				43363276299E8B2C00173329 /* DeviceList.swift in Sources */,
 				4336326B299E809D00173329 /* AppCoordinator.swift in Sources */,

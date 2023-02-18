@@ -58,22 +58,6 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        switch self.viewModel.deviceList.devices[indexPath.row] {
-        //        case .light(let light):
-        //            if let cell = tableView.dequeueReusableCell(withIdentifier: LightTableViewCell.reuseIdentifier, for: indexPath) as? LightTableViewCell {
-        //                cell.updateCell(light: light)
-        //                return cell
-        //            }
-        //        case .rollerShutter(let rollerShutter):
-        //            if let cell = tableView.dequeueReusableCell(withIdentifier: RollerShutterTableViewCell.reuseIdentifier, for: indexPath) as? RollerShutterTableViewCell {
-        //                cell.updateCell(rollerShutter: rollerShutter)
-        //                return cell
-        //            }
-        //        case .heater(let heater):
-        //            if let cell = tableView.dequeueReusableCell(withIdentifier: HeaterTableViewCell.reuseIdentifier, for: indexPath) as?  HeaterTableViewCell {
-        //                return cell
-        //            }
-        //        }
         guard let devices = self.viewModel.deviceList?.devices else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description(), for: indexPath)
         switch devices[indexPath.row] {
@@ -99,9 +83,6 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController {
     private func createTableView() -> UITableView {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        //        tableView.register(HeaterTableViewCell.self, forCellReuseIdentifier: HeaterTableViewCell.reuseIdentifier)
-        //        tableView.register(LightTableViewCell.self, forCellReuseIdentifier: LightTableViewCell.reuseIdentifier)
-        //        tableView.register(RollerShutterTableViewCell.self, forCellReuseIdentifier: RollerShutterTableViewCell.reuseIdentifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         tableView.delegate = self
         tableView.dataSource = self
