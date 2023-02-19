@@ -14,3 +14,7 @@
 "device.rollerShutter.opened" = "Opened";
 "device.rollerShutter.openedAt" = "Opened at %@%%";
 "device.rollerShutter.closed" = "Closed";
+
+"alert.title" = "Network error";
+"alert.message" = "Make sure you are connected to the internet and try again";
+"alert.action.ok" = "Ok";

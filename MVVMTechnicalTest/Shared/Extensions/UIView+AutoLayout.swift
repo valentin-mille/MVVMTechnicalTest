@@ -9,8 +9,6 @@ import UIKit
 
 extension UIView {
 
-    // MARK: - Internal
-
     func autoFit(inSafeArea: Bool) {
         translatesAutoresizingMaskIntoConstraints = false
         guard let superview = superview else { return }

@@ -13,8 +13,13 @@ protocol HomeViewControllerFlowDelegate: AnyObject {
 
 final class HomeViewController: UIViewController {
 
-    private lazy var tableView: UITableView = createTableView()
+    // MARK: - Properties
+
+    private lazy var refreshControl = createRefreshControl()
+    private lazy var tableView = createTableView()
     private lazy var viewModel = createHomeViewModel()
+    private lazy var alertNetwork = createNetworkAlert()
+
     weak var flowDelegate: HomeViewControllerFlowDelegate?
 
     // MARK: - View lifecycle
@@ -24,11 +29,7 @@ final class HomeViewController: UIViewController {
         self.title = Strings.devices
         self.buildViewHierarchy()
         self.setupConstraints()
-        self.viewModel.loadDeviceList { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
+        loadDevices()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +55,21 @@ final class HomeViewController: UIViewController {
         configuration.textProperties.font = .systemFont(ofSize: 16, weight: .bold)
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = configuration
+    }
+
+    @objc
+    private func loadDevices() {
+        guard Reachability.isConnectedToNetwork() else {
+            self.refreshControl.endRefreshing()
+            self.present(self.alertNetwork, animated: true)
+            return
+        }
+        self.viewModel.loadDeviceList { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
+        }
     }
 
 }
@@ -94,7 +110,14 @@ extension HomeViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.description())
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl = self.refreshControl
         return tableView
+    }
+
+    private func createRefreshControl() -> UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadDevices), for: .valueChanged)
+        return refreshControl
     }
 
     private func createHomeViewModel() -> HomeViewModel {
@@ -102,6 +125,17 @@ extension HomeViewController {
         let mapper = DeviceListDataMapper()
         let viewModel = HomeViewModel(service: service, mapper: mapper)
         return viewModel
+    }
+
+    private func createNetworkAlert() -> UIAlertController {
+        let alert = UIAlertController(
+            title: Strings.Alert.title,
+            message: Strings.Alert.message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: Strings.Alert.Action.ok, style: .default)
+        alert.addAction(okAction)
+        return alert
     }
 
 }

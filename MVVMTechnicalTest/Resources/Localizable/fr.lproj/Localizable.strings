@@ -14,3 +14,7 @@
 "device.rollerShutter.opened" = "Ouvert";
 "device.rollerShutter.openedAt" = "Ouvert à %@%%";
 "device.rollerShutter.closed" = "Fermé";
+
+"alert.title" = "Erreur réseau";
+"alert.message" = "Assurez-vous d'être connecté à internet puis réessayez";
+"alert.action.ok" = "Ok";

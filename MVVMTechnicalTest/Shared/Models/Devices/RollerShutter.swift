@@ -13,6 +13,9 @@ private enum Constants {
 }
 
 final class RollerShutter: Device, Configurable {
+
+    // MARK: - Properties
+
     let id: UInt
     let deviceName: String
     let productType: String
@@ -26,6 +29,8 @@ final class RollerShutter: Device, Configurable {
         case position
     }
 
+    // MARK: - Init
+
     init(
         from decoder: Decoder
     ) throws {
@@ -36,6 +41,8 @@ final class RollerShutter: Device, Configurable {
         productType = try values.decode(String.self, forKey: .productType)
         position = try values.decode(Float.self, forKey: .position)
     }
+
+    // MARK: - Properties
 
     func getStatus() -> String {
         if position >= 100 {

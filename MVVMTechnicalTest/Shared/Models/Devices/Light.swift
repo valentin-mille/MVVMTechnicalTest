@@ -14,6 +14,8 @@ private enum Constants {
 
 final class Light: Device, Configurable, Activable {
 
+    // MARK: - Properties
+
     let id: UInt
     let deviceName: String
     let productType: String
@@ -29,6 +31,8 @@ final class Light: Device, Configurable, Activable {
         case intensity
     }
 
+    // MARK: - Init
+
     init(
         from decoder: Decoder
     ) throws {
@@ -41,6 +45,8 @@ final class Light: Device, Configurable, Activable {
         mode = tmpMode == "ON" ? true : false
         intensity = try values.decode(Float.self, forKey: .intensity)
     }
+
+    // MARK: - Methods
 
     func getStatus() -> String {
         if !self.mode {

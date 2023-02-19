@@ -27,9 +27,13 @@ struct DeviceListDataMapper {
 
 final class HomeViewModel {
 
+    // MARK: - Properties
+
     private let service: DeviceService
     private let mapper: DeviceListDataMapper
     private(set) var devices: [Device] = []
+
+    // MARK: - Init
 
     init(
         service: DeviceService,
@@ -38,6 +42,8 @@ final class HomeViewModel {
         self.service = service
         self.mapper = mapper
     }
+
+    // MARK: - Methods
 
     func loadDeviceList(completionHandler: @escaping () -> Void) {
         self.service.getDeviceList(completion: { result in

@@ -15,6 +15,16 @@ public enum Strings {
   /// 
   ///   Created by Valentin Mille on 2/14/23.
   public static let devices = Strings.tr("Localizable", "devices", fallback: "Devices")
+  public enum Alert {
+    /// Make sure you are connected to the internet and try again
+    public static let message = Strings.tr("Localizable", "alert.message", fallback: "Make sure you are connected to the internet and try again")
+    /// Network error
+    public static let title = Strings.tr("Localizable", "alert.title", fallback: "Network error")
+    public enum Action {
+      /// Ok
+      public static let ok = Strings.tr("Localizable", "alert.action.ok", fallback: "Ok")
+    }
+  }
   public enum Device {
     /// Off
     public static let off = Strings.tr("Localizable", "device.off", fallback: "Off")

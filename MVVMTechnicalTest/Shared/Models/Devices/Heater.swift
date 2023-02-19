@@ -14,6 +14,8 @@ private enum Constants {
 
 final class Heater: Device, Configurable, Activable {
 
+    // MARK: - Properties
+
     let id: UInt
     let deviceName: String
     let productType: String
@@ -30,6 +32,8 @@ final class Heater: Device, Configurable, Activable {
         case temperature
     }
 
+    // MARK: - Init
+
     init(
         from decoder: Decoder
     ) throws {
@@ -42,6 +46,8 @@ final class Heater: Device, Configurable, Activable {
         mode = tmpMode == "ON" ? true : false
         temperature = try values.decode(Float.self, forKey: .temperature)
     }
+
+    // MARK: - Methods
 
     func getStatus() -> String {
         if !self.mode {
