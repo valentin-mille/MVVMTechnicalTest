@@ -6,4 +6,11 @@
   
 */
 
-"device.light" = "Lampe";
+"devices" = "Appareils";
+"device.on" = "Allumé";
+"device.off" = "Éteint";
+"device.heater.status" = "%@ à %@°";
+"device.light.status" = "%@ à %@%%";
+"device.rollerShutter.opened" = "Ouvert";
+"device.rollerShutter.openedAt" = "Ouvert à %@%%";
+"device.rollerShutter.closed" = "Fermé";

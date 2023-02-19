@@ -47,7 +47,7 @@ final class Heater: Device, Configurable, Activable {
         if !self.mode {
             return "\(self.getMode())"
         }
-        return "\(self.getMode()) at \(self.getCurrentValue())°"
+        return Strings.Device.Heater.status(self.getMode(), self.getCurrentValue())
     }
 
     func getImage() -> UIImage {

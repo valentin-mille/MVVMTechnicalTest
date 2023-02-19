@@ -38,7 +38,7 @@ protocol Configurable: Codable {
 
 extension Activable {
     func getMode() -> String {
-        return mode ? "On" : "Off"
+        return mode ? Strings.Device.on : Strings.Device.off
     }
 }
 

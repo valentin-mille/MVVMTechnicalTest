@@ -21,7 +21,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Devices"
+        self.title = Strings.devices
         self.buildViewHierarchy()
         self.setupConstraints()
         self.viewModel.loadDeviceList { [weak self] in

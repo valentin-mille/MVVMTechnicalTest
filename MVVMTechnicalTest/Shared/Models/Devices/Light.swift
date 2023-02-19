@@ -46,7 +46,7 @@ final class Light: Device, Configurable, Activable {
         if !self.mode {
             return "\(self.getMode())"
         }
-        return "\(self.getMode()) at \(Int(self.getCurrentValue()))%"
+        return Strings.Device.Light.status(self.getMode(), Int(self.getCurrentValue()))
     }
 
     func getImage() -> UIImage {

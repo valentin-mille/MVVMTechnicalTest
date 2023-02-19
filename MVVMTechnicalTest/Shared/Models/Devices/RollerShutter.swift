@@ -39,11 +39,11 @@ final class RollerShutter: Device, Configurable {
 
     func getStatus() -> String {
         if position >= 100 {
-            return "Opened"
+            return Strings.Device.RollerShutter.opened
         } else if position <= 0 {
-            return "Closed"
+            return Strings.Device.RollerShutter.closed
         }
-        return "Opened at \(Int(position))%"
+        return Strings.Device.RollerShutter.openedAt(Int(position))
     }
 
     func getImage() -> UIImage {
