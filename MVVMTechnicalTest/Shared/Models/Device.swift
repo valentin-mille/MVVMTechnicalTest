@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol Device: Codable {
-    var id: UInt { get }
+    var id: Int { get }
     var deviceName: String { get }
     var productType: String { get }
 

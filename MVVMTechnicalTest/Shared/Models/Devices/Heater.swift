@@ -16,7 +16,7 @@ final class Heater: Device, Configurable, Activable {
 
     // MARK: - Properties
 
-    let id: UInt
+    let id: Int
     let deviceName: String
     let productType: String
     var mode: Bool
@@ -35,11 +35,24 @@ final class Heater: Device, Configurable, Activable {
     // MARK: - Init
 
     init(
+        deviceName: String,
+        productType: String,
+        mode: Bool,
+        temperature: Float
+    ) {
+        self.id = UUID().uuidString.hashValue
+        self.deviceName = deviceName
+        self.productType = productType
+        self.mode = mode
+        self.temperature = temperature
+    }
+
+    init(
         from decoder: Decoder
     ) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        id = try values.decode(UInt.self, forKey: .id)
+        id = try values.decode(Int.self, forKey: .id)
         deviceName = try values.decode(String.self, forKey: .deviceName)
         productType = try values.decode(String.self, forKey: .productType)
         let tmpMode = try values.decode(String.self, forKey: .mode)

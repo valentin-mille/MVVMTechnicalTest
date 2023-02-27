@@ -32,6 +32,7 @@
 		43508EB729A184BF00B8D8D9 /* ControlHeaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EB629A184BF00B8D8D9 /* ControlHeaterViewModel.swift */; };
 		43508EBA29A1872E00B8D8D9 /* ControlLightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EB929A1872E00B8D8D9 /* ControlLightViewModel.swift */; };
 		43508EBD29A1892200B8D8D9 /* ControlRollerShutterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43508EBC29A1892200B8D8D9 /* ControlRollerShutterViewModel.swift */; };
+		43B6C2DE29AD6C1D009EFE72 /* ControlHeaterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6C2DD29AD6C1D009EFE72 /* ControlHeaterViewModelTests.swift */; };
 		43EA19F2299B5F2A0062E0AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */; };
 		43EA19F4299B5F2A0062E0AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */; };
 		43EA19FB299B5F2A0062E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43EA19FA299B5F2A0062E0AF /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		43508EB629A184BF00B8D8D9 /* ControlHeaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlHeaterViewModel.swift; sourceTree = "<group>"; };
 		43508EB929A1872E00B8D8D9 /* ControlLightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlLightViewModel.swift; sourceTree = "<group>"; };
 		43508EBC29A1892200B8D8D9 /* ControlRollerShutterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlRollerShutterViewModel.swift; sourceTree = "<group>"; };
+		43B6C2DD29AD6C1D009EFE72 /* ControlHeaterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlHeaterViewModelTests.swift; sourceTree = "<group>"; };
 		43EA19EE299B5F2A0062E0AF /* MVVMTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA19F1299B5F2A0062E0AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EA19F3299B5F2A0062E0AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +323,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		43B6C2DB29AD6BF6009EFE72 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				43B6C2DC29AD6C02009EFE72 /* ViewModels */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		43B6C2DC29AD6C02009EFE72 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				43B6C2DD29AD6C1D009EFE72 /* ControlHeaterViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		43EA19E5299B5F2A0062E0AF = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +376,7 @@
 		43EA1A07299B5F2A0062E0AF /* MVVMTechnicalTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				43B6C2DB29AD6BF6009EFE72 /* Controls */,
 				43EA1A08299B5F2A0062E0AF /* MVVMTechnicalTestTests.swift */,
 			);
 			path = MVVMTechnicalTestTests;
@@ -614,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43EA1A09299B5F2A0062E0AF /* MVVMTechnicalTestTests.swift in Sources */,
+				43B6C2DE29AD6C1D009EFE72 /* ControlHeaterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
